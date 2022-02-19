@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { setHobby } from './hobbySlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectHobby } from './hobbySlice.js';
@@ -102,8 +102,9 @@ export function Hobby() {
         </section>
     );
 }
-
+/*
 Hobby.propTypes = {
     hobby: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired
 }
+*/

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { convertHtml } from '../../utils/general-purpose.js';
 import { postStyles } from '../../styles/styles.js';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { setData } from './dataSlice.js'
 import { getData } from '../../utils/http-request.js';
 import { useSelector, useDispatch } from 'react-redux';
@@ -62,10 +62,11 @@ export function Posts() {
         </section>
     );
 }
-
+/*
 Posts.propTypes = {
     data: PropTypes.array.isRequired,
     hobby: PropTypes.string.isRequired,
     searchTerm: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired
 }
+*/

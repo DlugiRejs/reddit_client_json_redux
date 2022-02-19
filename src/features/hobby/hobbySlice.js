@@ -1,4 +1,20 @@
-//action creators
+import { createSlice } from '@reduxjs/toolkit';
+
+const options = {
+    name: 'hobby',
+    initialState: 'sports',
+    reducers: {
+        setHobby: (state, action) => action.payload
+    }
+}
+
+const hobbySlice = createSlice(options);
+
+export const { setHobby } = hobbySlice.actions;
+
+export default hobbySlice.reducer;
+
+/* //action creators
 export const setHobby = (nextHobby) => {
     return {
         type: 'hobby/setHobby',
@@ -17,7 +33,7 @@ export const hobbyReducer = (hobby = initialHobby, action) => {
         default:
             return hobby;
     }
-};
+}; */
 
 //selectors
 export const selectHobby = (state) => state.hobby;
