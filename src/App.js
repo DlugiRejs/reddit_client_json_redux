@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { SearchTerm } from "./features/searchTerm/SearchTerm.js";
+import { Hobby } from "./features/hobby/Hobby.js";
+import { Posts } from "./features/posts/Posts.js";
 
-function App() {
+import { appStyles, toTopButtonStyles } from "./styles/styles.js";
+
+
+function App({ state, dispatch }) {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div data-testid="app" className="App" style={appStyles(state.hobby)}>
+      <SearchTerm searchTerm={state.searchTerm} dispatch={dispatch} hobby={state.hobby} />
+      <main>
+        <Hobby dispatch={dispatch} hobby={state.hobby} />
+        <Posts data={state.data} hobby={state.hobby} searchTerm={state.searchTerm} dispatch={dispatch} />
+      </main>
+      <footer>
+        <button type="button" className="otherButton" style={toTopButtonStyles(state.hobby)}>
+          <a href="#buttons"><span>Back to top</span></a>
+        </button>
+      </footer>
     </div>
   );
 }
