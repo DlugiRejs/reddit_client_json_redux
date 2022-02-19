@@ -18,3 +18,6 @@ export const hobbyReducer = (hobby = initialHobby, action) => {
             return hobby;
     }
 };
+
+//selectors
+export const selectHobby = (state) => state.hobby;

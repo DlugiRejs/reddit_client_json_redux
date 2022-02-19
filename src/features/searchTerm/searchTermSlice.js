@@ -18,3 +18,6 @@ export const searchTermReducer = (searchTerm = initialSearchTerm, action) => {
             return searchTerm;
     }
 };
+
+//selectors
+export const selectSearchTerm = (state) => state.searchTerm;

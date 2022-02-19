@@ -4,8 +4,18 @@ import { postStyles } from '../../styles/styles.js';
 import PropTypes from 'prop-types';
 import { setData } from './dataSlice.js'
 import { getData } from '../../utils/http-request.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectData } from './dataSlice.js';
+import { selectHobby } from '../hobby/hobbySlice.js';
+import { selectSearchTerm } from '../searchTerm/searchTermSlice.js'
 
-export function Posts({ data, hobby, searchTerm, dispatch }) {
+export function Posts() {
+
+    const data = useSelector(selectData);
+    const hobby = useSelector(selectHobby);
+    const searchTerm = useSelector(selectSearchTerm);
+    const dispatch = useDispatch();
+
 
     useEffect(() => {
         async function gP() {

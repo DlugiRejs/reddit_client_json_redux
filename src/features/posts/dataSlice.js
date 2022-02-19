@@ -18,3 +18,6 @@ export const dataReducer = (data = initialData, action) => {
             return data;
     }
 };
+
+//selectors
+export const selectData = (state) => state.data;
