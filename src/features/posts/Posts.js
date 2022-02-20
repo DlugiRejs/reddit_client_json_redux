@@ -3,7 +3,7 @@ import { convertHtml } from '../../utils/general-purpose.js';
 import { postStyles } from '../../styles/styles.js';
 //import PropTypes from 'prop-types';
 import { setData } from './dataSlice.js'
-import { getData } from '../../utils/http-request.js';
+//import { getData } from '../../utils/http-request.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectData } from './dataSlice.js';
 import { selectHobby } from '../hobby/hobbySlice.js';
@@ -18,11 +18,12 @@ export function Posts() {
 
 
     useEffect(() => {
-        async function gP() {
+        /*async function gP() {
             const dataObj = await getData(hobby);
-            dispatch(setData(dataObj.data.children));
+           dispatch(setData(dataObj.data.children));
         }
-        gP();
+        gP();*/
+        dispatch(setData())
     }, [hobby, dispatch]);
 
     let posts = [];

@@ -1,16 +1,37 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getData } from '../../utils/http-request.js';
 
-const options = {
+//thunk action creator
+export const setData = createAsyncThunk(
+    'data/setData',
+    async (arg, thunkAPI) => {
+        const dataObj = await getData(thunkAPI.getState().hobby);
+        return dataObj.data.children;
+    }
+);
+/*const loadData = () => {
+    return async (dispatch, getState) => {
+        const dataObj = await getData(getState().hobby);
+        dispatch({ type: 'data/seData', payload: dataObj.data.children });
+    }
+};*/
+
+const sliceOptions = {
     name: 'data',
     initialState: [],
     reducers: {
-        setData: (state, action) => action.payload
+        //setData: (state, action) => action.payload
+    },
+    extraReducers: {
+        //[setData.pending]: (state, action) => {},
+        [setData.fulfilled]: (state, action) => action.payload,
+        //[setData.rejected]: (state, action) => {},
     }
 };
 
-const dataSlice = createSlice(options);
+const dataSlice = createSlice(sliceOptions);
 
-export const { setData } = dataSlice.actions;
+//export const { setData } = dataSlice.actions;
 
 export default dataSlice.reducer;
 
