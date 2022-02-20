@@ -1,6 +1,6 @@
 # About This App
 
-This is **Client for Reddit** App.
+This is **Client for Reddit** App (with redux store implementation).
 
 * By default and after pressing "home" button - it renders 15 basic informations from posts from [reddit/r/sports](https://www.reddit.com/r/sports/new/)-without advertisements.
 
